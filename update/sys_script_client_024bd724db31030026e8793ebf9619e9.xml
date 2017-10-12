@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>false</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>active</field>
+        <global>true</global>
+        <messages/>
+        <name>NeedIt OnSubmit</name>
+        <order/>
+        <script><![CDATA[function onSubmit() {
+   //Type appropriate comment here, and begin script below
+   alert("Thank you for submitting NeedIt request.");
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-10-11 07:19:59</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>024bd724db31030026e8793ebf9619e9</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>NeedIt OnSubmit</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="NeedIt" source="x_133857_needit">d5a79698db59030026e8793ebf9619aa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">d5a79698db59030026e8793ebf9619aa</sys_scope>
+        <sys_update_name>sys_script_client_024bd724db31030026e8793ebf9619e9</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2017-10-11 07:30:11</sys_updated_on>
+        <table>x_133857_needit_needit</table>
+        <type>onSubmit</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

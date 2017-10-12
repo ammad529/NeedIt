@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_page">
+    <sys_ui_page action="INSERT_OR_UPDATE">
+        <category>general</category>
+        <client_script/>
+        <description>Test Jelly Page</description>
+        <direct>false</direct>
+        <endpoint>x_133857_needit_Jello_World.do</endpoint>
+        <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+	
+	<g:evaluate>
+	var words = ['Hello','Jelly','World'];
+	</g:evaluate>
+	<j:forEach var ="jvar_word" items ="${words}">
+		<p>${jvar_word}</p>
+	</j:forEach>
+	<!-- Setting Valuse -->
+	<j:set var="jvar_count" value="5"/>
+	<j:set var="jvar_bool" value ="false"/>
+	
+	<!-- Checking Conditions -->
+	<j:if test='${jvar_count eq 5}'>
+		<br/>Count is equal to 5.
+	</j:if>
+	<j:if test='${jvar_count ne 5}'>
+		<br/>Count is not equal to 5.
+	</j:if>
+	<j:if test='${jvar_count le 5}'>
+		<br/>Count is less than or equal to 5.
+	</j:if>
+	<j:if test='${jvar_count lt 5}'>
+		<br/>Count is less than 5.
+	</j:if>
+	
+	<!-- Operation on count -->
+	<j:set var="jvar_plus_one" value="${jvar_count+ 1} "/>
+	<br/> If i add 1 to ${jvar_count}, i will get ${jvar_plus_one}.
+	<j:set var="jvar_divide_by_three" value="${jvar_plus_one/3}"/>
+	and if i ${javr_count} divide ${jvar_plus_one} by 3, i will get ${jvar_divide_by_three}.
+	and if i subtract 2 from ${jvar_divide_by_three}, i will get ${jvar_divide_by_three-2}
+	
+	<j:if test ='${jvar_bool eq false}'>
+		<br/> bool is false
+	</j:if>
+	<j:if test ='${jvar_bool eq true}'>
+		<br/> bool is true
+	</j:if>
+
+
+<!-- ********** Getting data form needIt table ********* 
+<g2:evaluate>
+	var gr = new GlideRecord('Incident');
+	gr.addQuery();
+	gr.query();
+</g2:evaluate>
+-->	
+<g:evaluate var="jvar_gr" object="true">
+  var gr = new GlideRecord("x_133857_needit_needit");
+  gr.addQuery("active", "true");
+  gr.query();
+  gr; // this is the variable put into the variable jvar_gr
+</g:evaluate>
+<table class="table">
+	<thead class="header">
+		<th>
+			Number
+		</th>
+		<th>
+			Priority
+		</th>
+		<th>
+			State
+		</th>
+		<th>
+			Short Description
+		</th>
+		
+	</thead>
+	<tbody>
+		<j:while test="${gr.next()}">
+			<tr>
+				<td>
+					${gr.getValue('number')}
+				</td>
+				<td>
+					${gr.getValue('priority')}
+					
+				</td>
+				<td>
+					${gr.getValue('state')}
+					
+				</td>
+				<td>
+					${gr.getValue('short_description')}
+					
+				</td>
+			</tr>
+		</j:while>
+	</tbody>
+</table>
+	
+	<g:ui_form>
+     <p>Click OK to run the processing script.</p>
+    <g:dialog_buttons_ok_cancel ok="return true" />
+    <input type="hidden" name="application_sys_id" value="499836460a0a0b1700003e7ad950b5da"/>
+ </g:ui_form>
+	
+	<g:ui_reference name="QUERY:active=true^roles=admin" id="assigned_to" table="sys_user" />
+	</j:jelly>]]></html>
+        <name>Jello_World</name>
+        <processing_script/>
+        <sys_class_name>sys_ui_page</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-10-03 07:34:31</sys_created_on>
+        <sys_id>0e221e0adb29030026e8793ebf9619bb</sys_id>
+        <sys_mod_count>60</sys_mod_count>
+        <sys_name>Jello_World</sys_name>
+        <sys_package display_value="NeedIt" source="x_133857_needit">d5a79698db59030026e8793ebf9619aa</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">d5a79698db59030026e8793ebf9619aa</sys_scope>
+        <sys_update_name>sys_ui_page_0e221e0adb29030026e8793ebf9619bb</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2017-10-05 06:33:52</sys_updated_on>
+    </sys_ui_page>
+</record_update>
